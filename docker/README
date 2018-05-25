@@ -1,0 +1,3 @@
+mvn -Pamd64-linux -DskipTests clean package docker:build
+docker run --name project-sample -v ~/.aws:/root/.aws -p8443:8443 -p8020:8020 -e "CATALINA_OPTS=-Dcom.finra.project.sample.env=dev” 465257512377.dkr.ecr.us-east-1.amazonaws.com/project-sample:latest
+docker logs -f project-sample

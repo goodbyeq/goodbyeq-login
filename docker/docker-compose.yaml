@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  tomcat:
+    build:    
+      context: ./
+    ports:
+      - "8080:8443"
+    volumes:
+      - ./goodbyeq-login-1.0.0.war:/usr/share/tomcat8/webapps/sample.war
+    image: app_local
+    hostname: proxy
+    entrypoint: [ "/usr/local/bin/dumb-init", "/staging/config-bootstrap.sh" ]
+    environment:
+         - AGS=dev
+         - SDLC=dev
+         - ssl_cn=devexport
+         - CRED_PROXY=proxye1.finra.org
+         - CRED_PORT=8080
+         - CRED_AGS=GATEWAYS
+         - CRED_SDLC=dev
+         - conf.decryptor.local=sample-decryptor
+         - spring.profiles.active=local
+

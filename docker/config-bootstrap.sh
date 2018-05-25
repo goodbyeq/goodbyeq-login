@@ -1,0 +1,2 @@
+cd /usr/share/tomcat8
+/usr/lib/jvm/jre/bin/java -classpath :/usr/share/tomcat8/bin/bootstrap.jar:/usr/share/tomcat8/bin/tomcat-juli.jar:/usr/share/java/commons-daemon.jar -Dcatalina.base=/usr/share/tomcat8 -Dcatalina.home=/usr/share/tomcat8 -Djava.endorsed.dirs= -Djava.io.tmpdir=/var/cache/tomcat8/temp -Djava.util.logging.config.file=/usr/share/tomcat8/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager org.apache.catalina.startup.Bootstrap start
